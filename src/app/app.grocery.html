@@ -1,0 +1,24 @@
+<div>
+    <h2>Grocery List Manager</h2>
+
+    <div class="row">
+        <div class="col-xs-6 col-md-4">
+            <div class="input-group pe-5">
+                <input type="text" class="form-control" placeholder="enter grocery items" id="txtSearch" [(ngModel)]="task.name" />
+                <button class="btn btn-primary" type="button" (click)="onClick()">
+                    <i class="bi-plus-square icon"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let task of tasks">
+            <span (click)="onStrike(task)" [ngClass]="{'strike': task.strike}"> {{ task.name }} </span>
+            <i (click)="onEdit(task)" class="bi bi-pencil"></i>
+            <i (click)="onDelete(task)" class="bi bi-trash"></i>
+        </li>
+    </ul>
+</div>
